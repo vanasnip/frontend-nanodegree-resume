@@ -1,96 +1,63 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
 
-/******************************************************************************/
-// var name = "Ivan Mamenemuno";
-// var formattedName = HTMLheaderName.replace("%data%", name);
-//
-//
-// var role = "Front-End Web Developer";
-// var formattedRole = HTMLheaderRole.replace("%data%", role);
-//
-//
-//
-// $("#header").prepend(formattedRole);
-// $("#header").prepend(formattedName);
-
-/******************************************************************************/
-// var skills = ["Awesomeness", "Programming", "Design", "Github"];
-// $("#main").append(skills.length);
-
-/******************************************************************************/
-
-
-// var sampleArray = [0,0,7, 7, 5];
-//
-// var incrementLastArrayElement = function(_array) {
-//     var newArray = [];
-//     // Your code should make newArray equal to an array that has the same
-//     // values as _array, but the last number has increased by one.
-//
-//     // For example:
-//     // _array = [1, 2, 3];
-//     // turns into:
-//
-//     // Your code goes in here!
-//
-//     var lastNo = _array.pop();
-//     _array[_array.length] = lastNo + 1;
-//     newArray = _array;
-//
-//
-//     // Don't delete this line!
-//     return newArray;
-// };
-//
-// // Did your code work? The line below will tell you!
-// console.log(incrementLastArrayElement(sampleArray));
-
-/******************************************************************************/
-// var name = "ALBERT EINstEiN";
-//
-// function nameChanger(oldName) {
-//     var finalName = oldName;
-//     // Your code goes here!
-//     var space = oldName.indexOf(" ");
-//     var surname =  oldName.slice(space+1);
-//     var firstName = oldName.slice(0, -surname.length -1);
-//     console.log(space + " space");
-//     finalName = firstName[0].toUpperCase() + firstName.slice(1, firstName.length).toLowerCase() + " " + surname.toUpperCase();
-//
-//
-//     // Don't delete this line!
-//     return finalName;
-// }
-//
-// // Did your code work? The line below will tell you!
-// console.log(nameChanger(name));
-/******************************************************************************/
 var bio = {
   "name": "Ivan Mamenemuno",
-  "role": "Web Developer",
+  "role": "Front-End Web Developer",
+  "welcomeMessage": "Welcome to my resume. I hope you see my credintials not just as merits, but as an opportunity and as an asset to your company, thank you",
+  "bioPic": "images/ivan.png",
+  "skills": ["HTML5", "CSS3", "Bootstrap", "Javascript", "Photoshop", "Illustrator", "Inkscape", "Grunt", "git", "GitHub", "Udacity Graduate" ],
   "contacts": {
+    "mobile": "07746969638",
     "email": "ivan.mamenemuno@gmail.com",
     "github": "vanasnip",
     "location": "Wixams, bedforshire"
   },
-  "skills": ["HTML5", "CSS3", "Bootstrap", "Javascript", "Photoshop", "Illustrator", "Inkscape", "Grunt", "git", "GitHub", "Udacity Graduate" ],
-  "bioPic": "images/ivan.png"
 };
 
+var work = {
+    "job": [
+    {
+      "title": "Sale and Marketing Executive",
+      "employer": "Ark-H Handling",
+      "city": "Bedford",
+      "discription": "My role involved initially involved developing a new front-end for the website. A good opportuinity to implement contemporary web technologies and techniques.",
+      "startDate": [9,  2007],
+      "endDate": ["Current Employer"]
+    },
+    {
+      "title": "Graphic Designer",
+      "employer": "Self Employed",
+      "city": "Luton",
+      "discription": "Working to client specification on flyers, posters, leaflets, brochures and other literature for print. As well as logo design and branding development for start-ups, I also worked on desgn for the web and email. ",
+      "startDate": [9,  2009],
+      "endDate": [4, 2015]
+    },
+    {
+      "title": "Photographer",
+      "employer": "Self Employed",
+      "city": "Luton",
+      "discription": "My photography included portaits, coorperate events, weddings, parties, fashion and products. I worked on refferal and I developed a lot from what was just a hobby to begin with.",
+      "startDate": [9,  2009],
+      "endDate": [4, 2015]
+    }
+  ]
+};
 
-
-
-
-var work = {};
-work.position = "Sale and Marketing Executive";
-work.employer = "Ark-H Handling";
-work.city = "Bedford";
-
+var projects = {
+  "project" : [
+    {
+      "title": "Chess Styles",
+      "discription": "users copy and paste algebraic chess notation for popular chess apps like chess.com. Chess styles will take this input and turn into a much more visually apealing, readable and easy to follow design layout. Web responsive and formatted for print",
+      "technologies": {
+        "tech": ["HTML", "CSS", "JavaScript"],
+        "techLogo": ["images/html.svg", "images/css.svg", "images/js.svg"]
+      },
+      "images": ["images/proj1-01.png", "images/proj1-02.png", "images/proj1-03.png"]
+    }
+  ]
+};
 
 var education = {
-  "schools": [
+  "school": [
     {
       "institute": "Barnfield College",
       "city": "Luton, UK",
@@ -112,7 +79,7 @@ var education = {
       "achieved": "Merit"
     }
   ],
-  "onlineCourses": [
+  "onlineCourse": [
     {
       "title": "Front-End Developer Nanodegree",
       "site": "Udacity.com",
