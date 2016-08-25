@@ -106,26 +106,42 @@ if (bio.skills.length > 0) {
     i++;
   }
 }
-$("#workExperience").append(HTMLworkStart);
-for (var jobs in work.jobs){
-  for (var info in work.jobs[jobs]){
+var displayWork = function() {
+  $("#workExperience").append(HTMLworkStart);
+  for (var job in work.jobs){
+    for (var info in work.jobs[job]){
 
-    var formattedEmployer;
-    var formattedRole;
-    var formattedLocation;
-    var formattedDates;
-    var formattedDescription;
-    if (info === "employer"){
-      formattedJob = HTMLworkEmployer.replace("%data%", work.jobs[jobs][info]);
-    } else if (info === "title"){
-      formattedJob = HTMLworkTitle.replace("%data%", work.jobs[jobs][info]);
-    } else if (info === "location"){
-      formattedJob = HTMLworkDates.replace("%data%", work.jobs[jobs][info]);
-    }else if (info === "dates"){
-      formattedJob = HTMLworkLocation.replace("%data%", work.jobs[jobs][info]);
-    }else if (info === "discription"){
-      formattedJob = HTMLworkDescription.replace("%data%", work.jobs[jobs][info]);
+      var formattedEmployer;
+      var formattedRole;
+      var formattedLocation;
+      var formattedDates;
+      var formattedDescription;
+      if (info === "employer"){
+        formattedJob = HTMLworkEmployer.replace("%data%", work.jobs[job][info]);
+      } else if (info === "title"){
+        formattedJob = HTMLworkTitle.replace("%data%", work.jobs[job][info]);
+      } else if (info === "location"){
+        formattedJob = HTMLworkDates.replace("%data%", work.jobs[job][info]);
+      }else if (info === "dates"){
+        formattedJob = HTMLworkLocation.replace("%data%", work.jobs[job][info]);
+      }else if (info === "discription"){
+        formattedJob = HTMLworkDescription.replace("%data%", work.jobs[job][info]);
+      }
+      $(".work-entry").append(formattedJob);
     }
-    $(".work-entry").append(formattedJob);
   }
-}
+};
+
+displayWork();
+
+$("#main").append(internationalizeButton);
+
+var internationalize = function(name) {
+  var fullName = name.split(" ");
+  var justFirstL = fullName[0].slice(0, fullName[0].length) + fullName[0].slice(0, 0);
+  var fullCaps = fullName[1].toUpperCase();
+  var intered  = justFirstL + " " + fullCaps;
+  return intered;
+};
+
+console.log(internationalize(bio.name));
