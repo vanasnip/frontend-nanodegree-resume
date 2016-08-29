@@ -18,9 +18,9 @@ var work = {
     {
       "employer": "Ark-H Handling",
       "title": "Sale and Marketing Executive",
-      "location": "Bedford",
+      "location": "Unit 1, Kenneth Way, Wilstead Industrial Park, Wilstead MK45 3PD",
       "dates": "Sep-2015 to Current",
-      "discription": "My role involved developing a new front-end for the website. A good opportuinity to implement contemporary web technologies and techniques.",
+      "description": "My role involved developing a new front-end for the website. A good opportuinity to implement contemporary web technologies and techniques.",
 
     },
     {
@@ -28,7 +28,7 @@ var work = {
       "title": "Graphic Designer",
       "location": "Luton",
       "dates": "Sep-2009 to Sep-2015",
-      "discription": "Working to client specification on flyers, posters, leaflets, brochures and other literature for print. As well as logo design and branding development for start-ups, I also worked on desgn for the web and email. ",
+      "description": "Working to client specification on flyers, posters, leaflets, brochures and other literature for print. As well as logo design and branding development for start-ups, I also worked on desgn for the web and email. ",
 
 
     },
@@ -37,7 +37,7 @@ var work = {
       "title": "Photographer",
       "location": "Luton",
       "dates": "Sep-2009 to Sep-2015",
-      "discription": "My photography included portaits, coorperate events, weddings, parties, fashion and products. I worked on refferal and I developed a lot from what was just a hobby to begin with.",
+      "description": "My photography included portaits, coorperate events, weddings, parties, fashion and products. I worked on refferal and I developed a lot from what was just a hobby to begin with.",
     }
   ]
 };
@@ -47,8 +47,14 @@ var projects = {
     {
       "title": "Chess Styles",
       "dates": "Feb-2016 to Apr-2016",
-      "discription": "users copy and paste algebraic chess notation for popular chess apps like chess.com. Chess styles will take this input and turn into a much more visually apealing, readable and easy to follow design layout. Web responsive and formatted for print",
-      "images": ["images/proj1-01.png", "images/proj1-02.png", "images/proj1-03.png"]
+      "description": "users copy and paste algebraic chess notation for popular chess apps like chess.com. Chess styles will take this input and turn into a much more visually apealing, readable and easy to follow design layout. Web responsive and formatted for print",
+      "images": ["images/proj1-01.png", "images/proj1-01.png", "images/proj1-01.png"]
+    },
+    {
+      "title": "Ark-H",
+      "dates": "May-2016 to Sep-2016",
+      "description": "Developing the company website, rebranding, the look the feel. I decided on the art direction, drew all the icons, storyboarded the whole thing and implemented it",
+      "images": ["images/proj1-03.png"]
     }
   ]
 };
@@ -60,7 +66,7 @@ var education = {
       "location": "Luton, UK",
       "degree": "National Diploma",
       "majors": ["Information Technology"],
-      "date": "Sep-2007 to July-2009",
+      "dates": "Sep-2007 to July-2009",
 
     },
     {
@@ -89,43 +95,81 @@ var education = {
   ]
 };
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var bioInfo = function(bioObj) {
+  var formattedName = HTMLheaderName.replace("%data%", bioObj.name);
+  var formattedRole = HTMLheaderRole.replace("%data%", bioObj.role);
+  $("#header").prepend(formattedRole);
+  $("#header").prepend(formattedName);
 
-
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
-if (bio.skills.length > 0) {
-  $("#header").append(HTMLskillsStart);
-  var i = 0;
-  while (i < bio.skills.length) {
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
-    $("#skills").append(formattedSkill);
-    i++;
-  }
-}
-$("#workExperience").append(HTMLworkStart);
-for (var jobs in work.jobs){
-  for (var info in work.jobs[jobs]){
-
-    var formattedEmployer;
-    var formattedRole;
-    var formattedLocation;
-    var formattedDates;
-    var formattedDescription;
-    if (info === "employer"){
-      formattedJob = HTMLworkEmployer.replace("%data%", work.jobs[jobs][info]);
-    } else if (info === "title"){
-      formattedJob = HTMLworkTitle.replace("%data%", work.jobs[jobs][info]);
-    } else if (info === "location"){
-      formattedJob = HTMLworkDates.replace("%data%", work.jobs[jobs][info]);
-    }else if (info === "dates"){
-      formattedJob = HTMLworkLocation.replace("%data%", work.jobs[jobs][info]);
-    }else if (info === "discription"){
-      formattedJob = HTMLworkDescription.replace("%data%", work.jobs[jobs][info]);
+  if (bioObj.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+    var i = 0;
+    while (i < bioObj.skills.length) {
+      var formattedSkill = HTMLskills.replace("%data%", bioObj.skills[i]);
+      $("#skills").append(formattedSkill);
+      i++;
     }
-    $(".work-entry").append(formattedJob);
   }
-}
+};
+
+var workhistory = function(workj){
+  $("#workExperience").append(HTMLworkStart);
+  for (var jobs in workj.jobs){
+    for (var info in workj.jobs[jobs]){
+
+      var formattedEmployer;
+      var formattedRole;
+      var formattedLocation;
+      var formattedDates;
+      var formattedDescription;
+      if (info === "employer"){
+        formattedJob = HTMLworkEmployer.replace("%data%", workj.jobs[jobs][info]);
+      } else if (info === "title"){
+        formattedJob = HTMLworkTitle.replace("%data%", workj.jobs[jobs][info]);
+      } else if (info === "location"){
+        formattedJob = HTMLworkDates.replace("%data%", workj.jobs[jobs][info]);
+      }else if (info === "dates"){
+        formattedJob = HTMLworkLocation.replace("%data%", workj.jobs[jobs][info]);
+      }else if (info === "description"){
+        formattedJob = HTMLworkDescription.replace("%data%", workj.jobs[jobs][info]);
+      }
+      $(".work-entry").append(formattedJob);
+    }
+  }
+};
+
+var display = function(proj) {
+
+  var formattedProjectTitle;
+  var formattedProjectDates;
+  var formattedProjectDescription;
+  var formattedProjectImage;
+
+  for (var project in proj.projects){
+    $("#projects").append(HTMLprojectStart);
+    formattedProjectTitle = HTMLprojectTitle.replace("%data%", proj.projects[project].title);
+    $(".project-entry:last").append(formattedProjectTitle);
+    formattedProjectDates = HTMLprojectDates.replace("%data%", proj.projects[project].dates);
+    $(".project-entry:last").append(formattedProjectDates);
+    formattedProjectDescription = HTMLprojectDescription.replace("%data%", proj.projects[project].description);
+    $(".project-entry:last").append(formattedProjectDescription);
+
+    if (proj.projects[project].images.length > 1){
+      for (var image in proj.projects[project].images){
+        formattedProjectImage = HTMLprojectImage.replace("%data%", proj.projects[project].images[image]);
+        $(".project-entry:last").append(formattedProjectImage);
+      }
+    }else {
+
+      $(".project-entry:last").append(formattedProjectImage);
+    }
+  }
+};
+
+bioInfo(bio);
+
+workhistory(work);
+display(projects);
+
+//you want to see a map? here's a map.
+$("#mapDiv").append(googleMap);
