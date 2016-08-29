@@ -136,6 +136,7 @@ var workhistory = function(workj){
       $(".work-entry").append(formattedJob);
     }
   }
+
 };
 
 var display = function(proj) {
@@ -159,15 +160,40 @@ var display = function(proj) {
         formattedProjectImage = HTMLprojectImage.replace("%data%", proj.projects[project].images[image]);
         $(".project-entry:last").append(formattedProjectImage);
       }
-    }else {
-
+    } else {
       $(".project-entry:last").append(formattedProjectImage);
     }
   }
 };
 
-bioInfo(bio);
+var displayWork = function() {
+  $("#workExperience").append(HTMLworkStart);
+  for (var job in work.jobs){
+    for (var info in work.jobs[job]){
 
+      var formattedEmployer;
+      var formattedRole;
+      var formattedLocation;
+      var formattedDates;
+      var formattedDescription;
+      if (info === "employer"){
+        formattedJob = HTMLworkEmployer.replace("%data%", work.jobs[job][info]);
+      } else if (info === "title"){
+        formattedJob = HTMLworkTitle.replace("%data%", work.jobs[job][info]);
+      } else if (info === "location"){
+        formattedJob = HTMLworkDates.replace("%data%", work.jobs[job][info]);
+      }else if (info === "dates"){
+        formattedJob = HTMLworkLocation.replace("%data%", work.jobs[job][info]);
+      }else if (info === "discription"){
+        formattedJob = HTMLworkDescription.replace("%data%", work.jobs[job][info]);
+      }
+      $(".work-entry").append(formattedJob);
+    }
+  }
+};
+
+bioInfo(bio);
+displayWork();
 workhistory(work);
 display(projects);
 
