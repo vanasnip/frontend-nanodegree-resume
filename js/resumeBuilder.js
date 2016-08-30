@@ -4,7 +4,7 @@ var bio = {
   "role": "Front-End Web Developer",
   "welcomeMessage": "Welcome to my resume. I hope you see my credintials not just as merits, but as an opportunity and as an asset to your company, thank you",
   "biopic": "images/ivan.png",
-  "skills": ["HTML5", "CSS3", "Bootstrap", "Javascript", "Photoshop", "Illustrator", "Inkscape", "Grunt", "git", "GitHub", "Udacity Graduate"],
+  "skills": ["HTML5", "CSS3", "Bootstrap", "Javascript", "Photoshop", "Illustrator", "Inkscape", "Grunt", "git", "GitHub"],
   "contacts": {
     "mobile": "07746969638",
     "email": "ivan.mamenemuno@gmail.com",
@@ -45,16 +45,10 @@ var work = {
 var projects = {
   "projects" : [
     {
-      "title": "Chess Styles",
+      "title": "Chess Action",
       "dates": "Feb-2016 to Apr-2016",
-      "description": "users copy and paste algebraic chess notation for popular chess apps like chess.com. Chess styles will take this input and turn into a much more visually apealing, readable and easy to follow design layout. Web responsive and formatted for print",
-      "images": ["images/proj1-01.png", "images/proj1-01.png", "images/proj1-01.png"]
-    },
-    {
-      "title": "Ark-H",
-      "dates": "May-2016 to Sep-2016",
-      "description": "Developing the company website, rebranding, the look the feel. I decided on the art direction, drew all the icons, storyboarded the whole thing and implemented it",
-      "images": ["images/proj1-03.png"]
+      "description": "Some awesome project I havent done yet but its gonna be EPIC!",
+      "images": ["images/proj1-01.png", "images/proj1-02.png", "images/proj1-03.png", "images/proj1-04.png"]
     }
   ]
 };
@@ -98,8 +92,11 @@ var education = {
 var bioInfo = function(bioObj) {
   var formattedName = HTMLheaderName.replace("%data%", bioObj.name);
   var formattedRole = HTMLheaderRole.replace("%data%", bioObj.role);
-  $("#header").prepend(formattedRole);
-  $("#header").prepend(formattedName);
+  var formattedBiopic = HTMLbioPic.replace("%data%", bioObj.biopic);
+  $("#banner").prepend(formattedRole);
+  $("#banner").prepend(formattedName);
+  $("#banner").prepend(formattedBiopic);
+
 
   if (bioObj.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
@@ -111,6 +108,7 @@ var bioInfo = function(bioObj) {
     }
   }
 };
+
 
 var workhistory = function(workj){
   $("#workExperience").append(HTMLworkStart);
@@ -127,9 +125,9 @@ var workhistory = function(workj){
       } else if (info === "title"){
         formattedJob = HTMLworkTitle.replace("%data%", workj.jobs[jobs][info]);
       } else if (info === "location"){
-        formattedJob = HTMLworkDates.replace("%data%", workj.jobs[jobs][info]);
-      }else if (info === "dates"){
         formattedJob = HTMLworkLocation.replace("%data%", workj.jobs[jobs][info]);
+      }else if (info === "dates"){
+        formattedJob = HTMLworkDates.replace("%data%", workj.jobs[jobs][info]);
       }else if (info === "description"){
         formattedJob = HTMLworkDescription.replace("%data%", workj.jobs[jobs][info]);
       }
@@ -166,36 +164,27 @@ var display = function(proj) {
   }
 };
 
-var displayWork = function() {
-  $("#workExperience").append(HTMLworkStart);
-  for (var job in work.jobs){
-    for (var info in work.jobs[job]){
+var footerDetails = function(bioContact) {
 
-      var formattedEmployer;
-      var formattedRole;
-      var formattedLocation;
-      var formattedDates;
-      var formattedDescription;
-      if (info === "employer"){
-        formattedJob = HTMLworkEmployer.replace("%data%", work.jobs[job][info]);
-      } else if (info === "title"){
-        formattedJob = HTMLworkTitle.replace("%data%", work.jobs[job][info]);
-      } else if (info === "location"){
-        formattedJob = HTMLworkDates.replace("%data%", work.jobs[job][info]);
-      }else if (info === "dates"){
-        formattedJob = HTMLworkLocation.replace("%data%", work.jobs[job][info]);
-      }else if (info === "discription"){
-        formattedJob = HTMLworkDescription.replace("%data%", work.jobs[job][info]);
-      }
-      $(".work-entry").append(formattedJob);
-    }
-  }
+  var formattedMobile;
+  var formattedEmail;
+  var formattedGithub;
+  var formattedLocation;
+  formattedMobile = HTMLmobile.replace("%data%", bioContact.mobile);
+  $("#footerContacts").append(formattedMobile);
+  formattedEmail = HTMLemail.replace("%data%", bioContact.email);
+  $("#footerContacts").append(formattedEmail);
+  formattedGithub = HTMLgithub.replace("%data%", bioContact.github);
+  $("#footerContacts").append(formattedGithub);
+  formattedLocation = HTMLlocation.replace("%data%", bioContact.location);
+  $("#footerContacts").append(formattedLocation);
 };
 
+
 bioInfo(bio);
-displayWork();
 workhistory(work);
 display(projects);
+footerDetails(bio.contacts);
 
 //you want to see a map? here's a map.
 $("#mapDiv").append(googleMap);

@@ -17,15 +17,29 @@ img {
   list-style: none;
 }
 
-
-ul#skills {
+header,
+ul#skills,
+.work-entry {
   display: flex;
   flex-wrap: wrap;
+
+}
+ul#skills li {
+  margin: 5px 0;
+
+}
+
+ul#skills li span{
+  background-color: #7e94bb;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
 }
 
 .limiter {
   width: 100%;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -33,11 +47,81 @@ ul#skills {
 #map {
   display: block;
   height: 100%;
-  margin: 0 5%;
+  margin: 10px 5%;
 }
 
 #mapDiv {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
+  margin-bottom: 30px;
+}
+
+.project-entry img {
+  width: 100%;
+}
+
+.description {
+  margin: 0 0 20px 0;
+  padding-bottom: 20px;
+}
+#workExperience .description {
+  border-bottom: #555 1px solid;
+}
+
+.proj-title,
+.employer {
+  font-size: 22px;
+}
+
+
+.work-title {
+  font-size:17px;
+  text-align: right;
+}
+
+.date-text {
+  text-align: right;
+  color: #999;
+  font-style: italic;
+}
+
+h2 {
+  margin: 20px 0;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.location-text {
+  color: #77b887;
+  font-style: italic;
+
+}
+
+#footerContacts li {
+  text-align: center;
+}
+
+#lets-connect {
+  margin-bottom: 60px;
+}
+
+.biopic {
+  align-items: center;
+}
+
+#banner {
+  margin-bottom: 30px;
+}
+#banner h1,
+#banner span {
+  text-align: right;
+}
+
+@media screen and (max-width: 767px) {
+  #banner,
+  #banner h1,
+  #banner span {
+    text-align: center;
+  }
 }

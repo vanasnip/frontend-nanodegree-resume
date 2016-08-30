@@ -1,36 +1,14 @@
 <!DOCTYPE html>
-
-<!--
-This is an HTML document. It contains information about how elements in the website
-are arranged. In other words, it describes the layout of a website.
-
-I can't wait to see the resumes you put together!
-
-Cameron Pittman, Udacity Course Developer
--->
-
-<!--
-The <head> of a website generally links to important resources the page will
-need to load. You'll see a lot of <link>s to CSS files for styles and
-<scripts> for JavaScript files to build interactions.
--->
 <html>
 <head>
-  <!-- This tells the browser how to read the document. -->
+
   <meta charset="utf-8">
 
-  <!-- Tells the browser what the title of this page should be. -->
   <title>Resume</title>
 
-  <!-- Load the page styles. -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link href="css/style.css" rel="stylesheet">
 
-
-
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive Google Map to your resume!
-  -->
 <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB9OhbnpPjcNILswxE_KtEGxeNx7qkXp6I"></script>
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -38,31 +16,34 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 <body class="container-fluid">
 
   <div id="main" class="row">
-    <div class="limiter">
+    <div class="limiter ">
 
       <div id="header" class="center-content clear-fix col-xs-12">
+        <div id="banner" class="col-xs-12">
+          
+        </div>
         <ul id="topContacts" class="flex-box"></ul>
       </div>
 
       <div style="clear: both;"></div>
 
-      <div id="workExperience" class="gray">
+      <div id="workExperience" class="gray col-xs-12">
         <h2>Work Experience</h2>
       </div>
 
-      <div id="projects">
+      <div id="projects" class="col-xs-12">
         <h2>Projects</h2>
       </div>
 
-      <div id="education" class="gray">
+      <div id="education" class="gray col-xs-12">
         <h2>Education</h2>
       </div>
 
-      <div id="mapDiv">
+      <div id="mapDiv" class="col-xs-12">
         <h2>Where I've Lived and Worked</h2>
       </div>
 
-      <div id="lets-connect" class="dark-gray">
+      <div id="lets-connect" class="dark-gray col-xs-12">
         <h2 class="orange center-text">Let's Connect</h2>
           <ul id="footerContacts" class="flex-box">
         </ul>
