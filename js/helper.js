@@ -26,7 +26,7 @@ var HTMLlocation = '<li class="flex-item col-xs-6"><span class="orange-text">loc
 var HTMLbioPic = '<img src="%data%" class="biopic col-sm-2">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h2 id="skills-h3 col-xs-12 ">Skills at a Glance:</h2><ul id="skills" class="flex-column col-xs-12"></ul>';
+var HTMLskillsStart = '<h2 id="skills-h3" class="col-xs-12">Skills at a Glance:</h2><ul id="skills" class="flex-column col-xs-12"></ul>';
 var HTMLskills = '<li class="flex-item col-xs-4 col-sm-3 col-md-2"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry col-xs-12"></div>';
@@ -43,17 +43,19 @@ var HTMLprojectDescription = '<p class="description col-xs-12"><br>%data%</p>';
 var HTMLprojectImage = '<div class="col-xs-6 col-sm-3"><img src="%data%"></div>';
 
 var HTMLschoolStart = '<div class="education-entry col-xs-12"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolName = '<a class="school-name col-xs-12 col-sm-6" href="#">%data%</a>';
+var HTMLschoolDegree = '<span class="col-xs-12 col-sm-6 degree">%data%</span>';
+var HTMLschoolDates = '<div class="date-text col-xs-12 col-sm-6">%data%</div>';
+var HTMLschoolLocation = '<div class="location-text col-xs-12 col-sm-6"">%data%</div>';
+var HTMLschoolMajor = '<em class="col-xs-12 major">Major: %data%</em>';
+var HTMLschoolURL = '<a class="col-xs-12" href="#">%data%</a>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineStart = '<div class="online-entry col-xs-12"></div>';
+var HTMLonlineClasses = '<h2>Online Classes</h2>';
+var HTMLonlineTitle = '<a class="school-name col-xs-12 col-sm-6" href="#">%data%</a>';
+var HTMLonlineSchool = '<span class="col-xs-12 col-sm-6 online-course">%data%</span>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineURL = '<a class="col-xs-12 the-url" href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';

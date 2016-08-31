@@ -18,18 +18,19 @@ img {
 }
 
 header,
-ul#skills,
-.work-entry {
+#skills,
+.work-entry,
+.education-entry {
   display: flex;
   flex-wrap: wrap;
 
 }
-ul#skills li {
+#skills li {
   margin: 5px 0;
 
 }
 
-ul#skills li span{
+#skills li span{
   background-color: #7e94bb;
   padding: 5px;
   border-radius: 10px;
@@ -60,22 +61,27 @@ ul#skills li span{
 .project-entry img {
   width: 100%;
 }
-
+.the-url,
+.major,
 .description {
   margin: 0 0 20px 0;
   padding-bottom: 20px;
 }
+
+
 #workExperience .description {
-  border-bottom: #555 1px solid;
+  border-bottom: #999 1px solid;
 }
 
+.school-name,
 .proj-title,
 .employer {
   font-size: 22px;
 }
 
-
-.work-title {
+.degree,
+.work-title,
+.online-course {
   font-size:17px;
   text-align: right;
 }
@@ -118,6 +124,10 @@ h2 {
   text-align: right;
 }
 
+.the-url,
+.major {
+  border-bottom: #999 1px solid;
+}
 @media screen and (max-width: 767px) {
   #banner,
   #banner h1,
