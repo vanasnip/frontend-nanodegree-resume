@@ -104,7 +104,8 @@ var bioDisplay = function(bioObj) {
   var formattedName = HTMLheaderName.replace('%data%', bioObj.name);
   var formattedRole = HTMLheaderRole.replace('%data%', bioObj.role);
   var formattedBiopic = HTMLbioPic.replace('%data%', bioObj.biopic);
-  $('#banner').prepend(formattedBiopic, formattedName, formattedRole);
+  var formattedWelcomeMsg = HTMLwelcomeMsg.replace('%data%', bioObj.welcomeMessage);
+  $('#banner').prepend(formattedBiopic, formattedName, formattedRole, formattedWelcomeMsg);
   if (bioObj.skills.length > 0) {
     $('#header').append(HTMLskillsStart);
     var i = 0;
