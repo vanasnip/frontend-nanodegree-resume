@@ -12,7 +12,7 @@ var bio = {
   },
   'display': function() {
     bioDisplay(bio);
-    footerDisplay(bio.contacts);
+    contactDisplay(bio.contacts);
   },
 
 
@@ -168,19 +168,24 @@ var projectsDisplay = function(proj) {
   }
 };
 
-var footerDisplay = function(bioContact) {
+var contactDisplay = function(bioContact) {
   var formattedMobile;
   var formattedEmail;
   var formattedGithub;
   var formattedLocation;
   formattedMobile = HTMLmobile.replace('%data%', bioContact.mobile);
+  $('#topContacts').append(formattedMobile);
   $('#footerContacts').append(formattedMobile);
   formattedEmail = HTMLemail.replace('%data%', bioContact.email);
+  $('#topContacts').append(formattedEmail);
   $('#footerContacts').append(formattedEmail);
   formattedGithub = HTMLgithub.replace('%data%', bioContact.github);
+  $('#topContacts').append(formattedGithub);
   $('#footerContacts').append(formattedGithub);
   formattedLocation = HTMLlocation.replace('%data%', bioContact.location);
+  $('#topContacts').append(formattedLocation);
   $('#footerContacts').append(formattedLocation);
+
 };
 
 var educationDisplay = function(eduObj) {

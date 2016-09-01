@@ -16,9 +16,10 @@ img {
   box-sizing: border-box;
   list-style: none;
 }
-
+#topContacts li,
 header,
 #skills,
+#skills li,
 .work-entry,
 .education-entry {
   display: flex;
@@ -27,6 +28,7 @@ header,
 }
 #skills li {
   margin: 5px 0;
+  justify-content: center;
 
 }
 
@@ -104,9 +106,7 @@ h2 {
 
 }
 
-#footerContacts li {
-  text-align: center;
-}
+
 
 #lets-connect {
   margin-bottom: 60px;
@@ -128,10 +128,40 @@ h2 {
 .major {
   border-bottom: #999 1px solid;
 }
+
+.orange-text {
+  font-weight: bold;
+}
+
+.white-text {
+  font-size: 15px;
+  color: #7dd470;
+  margin: 0 6px;
+}
+
+.contact-item {
+  justify-content: start;
+}
+
+.flex-reverse {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+
+#banner .welcome-message {
+  padding: 10px 15vw;
+  text-align: center;
+}
 @media screen and (max-width: 767px) {
   #banner,
   #banner h1,
   #banner span {
     text-align: center;
+  }
+
+  #topContacts li,
+  .flex-reverse {
+    justify-content: center;
   }
 }
